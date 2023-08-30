@@ -8,12 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		F80A48FB2A95F2520085753C /* CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A48FA2A95F2520085753C /* CalculatorApp.swift */; };
-		F80A48FD2A95F2520085753C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A48FC2A95F2520085753C /* ContentView.swift */; };
+		F80A48FD2A95F2520085753C /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A48FC2A95F2520085753C /* CalculatorView.swift */; };
 		F80A48FF2A95F2530085753C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F80A48FE2A95F2530085753C /* Assets.xcassets */; };
-		F80A49022A95F2530085753C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F80A49012A95F2530085753C /* Preview Assets.xcassets */; };
 		F80A490C2A95F2530085753C /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A490B2A95F2530085753C /* CalculatorTests.swift */; };
 		F80A49162A95F2530085753C /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A49152A95F2530085753C /* CalculatorUITests.swift */; };
 		F80A49182A95F2530085753C /* CalculatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A49172A95F2530085753C /* CalculatorUITestsLaunchTests.swift */; };
+		F80A49272A96EA920085753C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A49262A96EA920085753C /* SettingsView.swift */; };
+		F80A49292A96EBA80085753C /* CalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A49282A96EBA80085753C /* CalculatorButton.swift */; };
+		F80A492F2A98AD620085753C /* ButtonGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A492E2A98AD620085753C /* ButtonGrid.swift */; };
+		F80A49332A98AF9E0085753C /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A49322A98AF9E0085753C /* Operation.swift */; };
+		F80A49352A9A0D910085753C /* UpperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A49342A9A0D910085753C /* UpperRow.swift */; };
+		F80A49372A9A0E840085753C /* SquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A49362A9A0E840085753C /* SquareButton.swift */; };
+		F80A49392A9AF4250085753C /* CalculatorViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A49382A9AF4250085753C /* CalculatorViewViewModel.swift */; };
+		F80A493B2A9B01AE0085753C /* MiddleGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A493A2A9B01AE0085753C /* MiddleGrid.swift */; };
+		F80A493D2A9B1AEA0085753C /* RightColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A493C2A9B1AEA0085753C /* RightColumn.swift */; };
+		F80A493F2A9B1ED40085753C /* BottomRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A493E2A9B1ED40085753C /* BottomRow.swift */; };
+		F8A3C28C2A9DDB5200A558D0 /* ConfigurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A3C28B2A9DDB5200A558D0 /* ConfigurationCell.swift */; };
+		F8A3C28E2A9DDC0000A558D0 /* ConfigurationGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A3C28D2A9DDC0000A558D0 /* ConfigurationGrid.swift */; };
+		F8C060122A9D7CA600D0E6D3 /* OperationToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C060112A9D7CA600D0E6D3 /* OperationToggle.swift */; };
+		F8EF88102A9EE1C400B8378A /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = F8EF880F2A9EE1C400B8378A /* Preview Content */; };
+		F8EF88132A9F309200B8378A /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF88122A9F309200B8378A /* Calculation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,14 +50,28 @@
 /* Begin PBXFileReference section */
 		F80A48F72A95F2520085753C /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F80A48FA2A95F2520085753C /* CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorApp.swift; sourceTree = "<group>"; };
-		F80A48FC2A95F2520085753C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F80A48FC2A95F2520085753C /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		F80A48FE2A95F2530085753C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F80A49012A95F2530085753C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F80A49072A95F2530085753C /* CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F80A490B2A95F2530085753C /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
 		F80A49112A95F2530085753C /* CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F80A49152A95F2530085753C /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 		F80A49172A95F2530085753C /* CalculatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F80A49262A96EA920085753C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F80A49282A96EBA80085753C /* CalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButton.swift; sourceTree = "<group>"; };
+		F80A492E2A98AD620085753C /* ButtonGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGrid.swift; sourceTree = "<group>"; };
+		F80A49322A98AF9E0085753C /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		F80A49342A9A0D910085753C /* UpperRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperRow.swift; sourceTree = "<group>"; };
+		F80A49362A9A0E840085753C /* SquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareButton.swift; sourceTree = "<group>"; };
+		F80A49382A9AF4250085753C /* CalculatorViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewViewModel.swift; sourceTree = "<group>"; };
+		F80A493A2A9B01AE0085753C /* MiddleGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleGrid.swift; sourceTree = "<group>"; };
+		F80A493C2A9B1AEA0085753C /* RightColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightColumn.swift; sourceTree = "<group>"; };
+		F80A493E2A9B1ED40085753C /* BottomRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomRow.swift; sourceTree = "<group>"; };
+		F8A3C28B2A9DDB5200A558D0 /* ConfigurationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationCell.swift; sourceTree = "<group>"; };
+		F8A3C28D2A9DDC0000A558D0 /* ConfigurationGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationGrid.swift; sourceTree = "<group>"; };
+		F8C060112A9D7CA600D0E6D3 /* OperationToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationToggle.swift; sourceTree = "<group>"; };
+		F8EF880F2A9EE1C400B8378A /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
+		F8EF88122A9F309200B8378A /* Calculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,20 +122,12 @@
 		F80A48F92A95F2520085753C /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				F80A48FA2A95F2520085753C /* CalculatorApp.swift */,
-				F80A48FC2A95F2520085753C /* ContentView.swift */,
-				F80A48FE2A95F2530085753C /* Assets.xcassets */,
-				F80A49002A95F2530085753C /* Preview Content */,
+				F8EF88112A9F224200B8378A /* Domain Logic */,
+				F8C0600F2A9D7C8200D0E6D3 /* UI */,
+				F80A49302A98AF690085753C /* Model */,
+				F8EF880F2A9EE1C400B8378A /* Preview Content */,
 			);
 			path = Calculator;
-			sourceTree = "<group>";
-		};
-		F80A49002A95F2530085753C /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				F80A49012A95F2530085753C /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		F80A490A2A95F2530085753C /* CalculatorTests */ = {
@@ -125,6 +145,84 @@
 				F80A49172A95F2530085753C /* CalculatorUITestsLaunchTests.swift */,
 			);
 			path = CalculatorUITests;
+			sourceTree = "<group>";
+		};
+		F80A49302A98AF690085753C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F80A49312A98AF780085753C /* Unmanaged */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F80A49312A98AF780085753C /* Unmanaged */ = {
+			isa = PBXGroup;
+			children = (
+				F80A49322A98AF9E0085753C /* Operation.swift */,
+			);
+			path = Unmanaged;
+			sourceTree = "<group>";
+		};
+		F8C0600F2A9D7C8200D0E6D3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F8EF880E2A9EE17300B8378A /* App */,
+				F8EF880C2A9EE0B700B8378A /* Assets */,
+				F8EF880B2A9EE05900B8378A /* Calculator */,
+				F8C060102A9D7C8E00D0E6D3 /* Settings */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		F8C060102A9D7C8E00D0E6D3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F80A49262A96EA920085753C /* SettingsView.swift */,
+				F8C060112A9D7CA600D0E6D3 /* OperationToggle.swift */,
+				F8A3C28B2A9DDB5200A558D0 /* ConfigurationCell.swift */,
+				F8A3C28D2A9DDC0000A558D0 /* ConfigurationGrid.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F8EF880B2A9EE05900B8378A /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				F80A49382A9AF4250085753C /* CalculatorViewViewModel.swift */,
+				F80A48FC2A95F2520085753C /* CalculatorView.swift */,
+				F80A49282A96EBA80085753C /* CalculatorButton.swift */,
+				F80A492E2A98AD620085753C /* ButtonGrid.swift */,
+				F80A49342A9A0D910085753C /* UpperRow.swift */,
+				F80A49362A9A0E840085753C /* SquareButton.swift */,
+				F80A493A2A9B01AE0085753C /* MiddleGrid.swift */,
+				F80A493C2A9B1AEA0085753C /* RightColumn.swift */,
+				F80A493E2A9B1ED40085753C /* BottomRow.swift */,
+			);
+			path = Calculator;
+			sourceTree = "<group>";
+		};
+		F8EF880C2A9EE0B700B8378A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F80A48FE2A95F2530085753C /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		F8EF880E2A9EE17300B8378A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F80A48FA2A95F2520085753C /* CalculatorApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F8EF88112A9F224200B8378A /* Domain Logic */ = {
+			isa = PBXGroup;
+			children = (
+				F8EF88122A9F309200B8378A /* Calculation.swift */,
+			);
+			path = "Domain Logic";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F80A49022A95F2530085753C /* Preview Assets.xcassets in Resources */,
+				F8EF88102A9EE1C400B8378A /* Preview Content in Resources */,
 				F80A48FF2A95F2530085753C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,8 +355,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F80A48FD2A95F2520085753C /* ContentView.swift in Sources */,
+				F8A3C28E2A9DDC0000A558D0 /* ConfigurationGrid.swift in Sources */,
+				F80A49372A9A0E840085753C /* SquareButton.swift in Sources */,
+				F80A48FD2A95F2520085753C /* CalculatorView.swift in Sources */,
+				F80A49272A96EA920085753C /* SettingsView.swift in Sources */,
+				F8C060122A9D7CA600D0E6D3 /* OperationToggle.swift in Sources */,
+				F80A493F2A9B1ED40085753C /* BottomRow.swift in Sources */,
 				F80A48FB2A95F2520085753C /* CalculatorApp.swift in Sources */,
+				F8A3C28C2A9DDB5200A558D0 /* ConfigurationCell.swift in Sources */,
+				F80A493D2A9B1AEA0085753C /* RightColumn.swift in Sources */,
+				F80A49332A98AF9E0085753C /* Operation.swift in Sources */,
+				F80A49392A9AF4250085753C /* CalculatorViewViewModel.swift in Sources */,
+				F8EF88132A9F309200B8378A /* Calculation.swift in Sources */,
+				F80A493B2A9B01AE0085753C /* MiddleGrid.swift in Sources */,
+				F80A49292A96EBA80085753C /* CalculatorButton.swift in Sources */,
+				F80A49352A9A0D910085753C /* UpperRow.swift in Sources */,
+				F80A492F2A98AD620085753C /* ButtonGrid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,8 +540,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,8 +568,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
