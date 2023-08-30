@@ -8,6 +8,7 @@
 import Foundation
 
 struct Calculation {
+    var displayedValue = ""
     var pendingOperation: ((Double, Double) -> Double)? = nil
     var storedValue: Double? = nil
     var displayingResult = false

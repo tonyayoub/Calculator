@@ -103,31 +103,32 @@ class CalculatorViewViewModel: ObservableObject {
         buttonValue
             .sink {
                 print($0)
-                self.currentCalculation = self.buttonTapped(button: $0, currentCalculation: self.currentCalculation) ?? Calculation()
+                self.currentCalculation = self.buttonTapped(button: $0, currentCalculation: self.currentCalculation)
+                self.display = self.currentCalculation.displayedValue
 //                self.buttonTapped($0)
             }
             .store(in: &bag)
     }
     
-    func buttonTapped(button: CalculatorButton, currentCalculation: Calculation) -> Calculation? {
+    func buttonTapped(button: CalculatorButton, currentCalculation: Calculation) -> Calculation {
         var updatedCalculation = currentCalculation
         switch button {
         case .ac:
-            display = "0"
+            updatedCalculation.displayedValue = "0"
             updatedCalculation.storedValue = nil
             updatedCalculation.pendingOperation = nil
         case .dot:
-            if !display.contains(".") {
-                display += "."
+            if !currentCalculation.displayedValue.contains(".") {
+                updatedCalculation.displayedValue = currentCalculation.displayedValue + "."
             }
         case .equals:
             guard let storedValue = currentCalculation.storedValue,
                   let pendingOperation = currentCalculation.pendingOperation,
-                  let currentValue = Double(display) else {
+                  let currentValue = Double(currentCalculation.displayedValue) else {
                 updatedCalculation.displayingResult = true // For when the user taps '=' twice
                 return updatedCalculation
             }
-            display = String(format: "%g", pendingOperation(storedValue, currentValue))
+            updatedCalculation.displayedValue = String(format: "%g", pendingOperation(storedValue, currentValue))
             updatedCalculation.storedValue = nil
             updatedCalculation.pendingOperation = nil
             updatedCalculation.displayingResult = true
@@ -143,21 +144,21 @@ class CalculatorViewViewModel: ObservableObject {
         case .sin:
             if let value = Double(display) {
                 let result = "\(sin(value * .pi / 180.0))"
-                display = String(result.prefix(10))
+                updatedCalculation.displayedValue = String(result.prefix(10))
                 updatedCalculation.displayingResult = true
             }
         case .cos:
             if let value = Double(display) {
                 let result = "\(cos(value * .pi / 180.0))"
-                display = String(result.prefix(10))
+                updatedCalculation.displayedValue = String(result.prefix(10))
                 updatedCalculation.displayingResult = true
             }
         default:
-            if display == "0" || currentCalculation.displayingResult {
-                display = button.title
+            if currentCalculation.displayedValue == "0" || currentCalculation.displayingResult {
+                updatedCalculation.displayedValue = button.title
                 updatedCalculation.displayingResult = false
             } else {
-                display += button.title
+                updatedCalculation.displayedValue += button.title
             }
         }
         
@@ -175,10 +176,10 @@ class CalculatorViewViewModel: ObservableObject {
            let pendingOperation = currentCalculation.pendingOperation {
             let result = pendingOperation(storedValue, currentValue)
             updatedCalculation.storedValue = result
-            display = "0"
+            updatedCalculation.displayedValue = "0"
         } else if let value = Double(display) {
             updatedCalculation.storedValue = value
-            display = "0"
+            updatedCalculation.displayedValue = "0"
         }
         updatedCalculation.pendingOperation = operation
         return updatedCalculation
