@@ -24,7 +24,7 @@ struct CalculatorView: View {
             VStack(alignment: .center, spacing: 20) {
                 Spacer(minLength: 40)
                 VStack(alignment: .center) {
-                    Text(viewModel.display)
+                    Text(viewModel.display2)
                         .font(.largeTitle)
                         .multilineTextAlignment(.trailing)  // Right-aligned text
                         .padding()

@@ -28,6 +28,7 @@
 		F8C060122A9D7CA600D0E6D3 /* OperationToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C060112A9D7CA600D0E6D3 /* OperationToggle.swift */; };
 		F8EF88102A9EE1C400B8378A /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = F8EF880F2A9EE1C400B8378A /* Preview Content */; };
 		F8EF88132A9F309200B8378A /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF88122A9F309200B8378A /* Calculation.swift */; };
+		F8EF88152A9F3D4400B8378A /* CalculationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF88142A9F3D4400B8378A /* CalculationHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		F8C060112A9D7CA600D0E6D3 /* OperationToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationToggle.swift; sourceTree = "<group>"; };
 		F8EF880F2A9EE1C400B8378A /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
 		F8EF88122A9F309200B8378A /* Calculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
+		F8EF88142A9F3D4400B8378A /* CalculationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		F80A49312A98AF780085753C /* Unmanaged */ = {
 			isa = PBXGroup;
 			children = (
+				F8EF88122A9F309200B8378A /* Calculation.swift */,
 				F80A49322A98AF9E0085753C /* Operation.swift */,
 			);
 			path = Unmanaged;
@@ -220,7 +223,7 @@
 		F8EF88112A9F224200B8378A /* Domain Logic */ = {
 			isa = PBXGroup;
 			children = (
-				F8EF88122A9F309200B8378A /* Calculation.swift */,
+				F8EF88142A9F3D4400B8378A /* CalculationHandler.swift */,
 			);
 			path = "Domain Logic";
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				F8A3C28C2A9DDB5200A558D0 /* ConfigurationCell.swift in Sources */,
 				F80A493D2A9B1AEA0085753C /* RightColumn.swift in Sources */,
 				F80A49332A98AF9E0085753C /* Operation.swift in Sources */,
+				F8EF88152A9F3D4400B8378A /* CalculationHandler.swift in Sources */,
 				F80A49392A9AF4250085753C /* CalculatorViewViewModel.swift in Sources */,
 				F8EF88132A9F309200B8378A /* Calculation.swift in Sources */,
 				F80A493B2A9B01AE0085753C /* MiddleGrid.swift in Sources */,

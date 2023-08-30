@@ -11,7 +11,7 @@ import Combine
 class CalculatorViewViewModel: ObservableObject {
     //    @Published var enabledOperations: [Operation] = [.sin, .cos, .bitCoin, .divide, .multiply, .subtract, .add]
     
-    @Published var display: String = "0"
+    @Published var display2: String = "0"
     private var currentCalculation = Calculation()
     @Published var enabledOperations: [Operation] = [
         .sin,
@@ -104,7 +104,7 @@ class CalculatorViewViewModel: ObservableObject {
             .sink {
                 print($0)
                 self.currentCalculation = self.buttonTapped(button: $0, currentCalculation: self.currentCalculation)
-                self.display = self.currentCalculation.displayedValue
+                self.display2 = self.currentCalculation.displayedValue
 //                self.buttonTapped($0)
             }
             .store(in: &bag)
@@ -118,7 +118,10 @@ class CalculatorViewViewModel: ObservableObject {
             updatedCalculation.storedValue = nil
             updatedCalculation.pendingOperation = nil
         case .dot:
-            if !currentCalculation.displayedValue.contains(".") {
+            if currentCalculation.displayingResult {
+                updatedCalculation.displayedValue = "0."
+                updatedCalculation.displayingResult = false
+            } else if !currentCalculation.displayedValue.contains(".") {
                 updatedCalculation.displayedValue = currentCalculation.displayedValue + "."
             }
         case .equals:
@@ -138,17 +141,17 @@ class CalculatorViewViewModel: ObservableObject {
         case .subtract:
             updatedCalculation = setPendingOperation(operation: { $0 - $1 }, currentCalculation: currentCalculation)
         case .multiply:
-            updatedCalculation = setPendingOperation(operation: { $0 - $1 }, currentCalculation: currentCalculation)
+            updatedCalculation = setPendingOperation(operation: { $0 * $1 }, currentCalculation: currentCalculation)
         case .divide:
             updatedCalculation = setPendingOperation(operation: { $0 / $1 }, currentCalculation: currentCalculation)
         case .sin:
-            if let value = Double(display) {
+            if let value = Double(currentCalculation.displayedValue) {
                 let result = "\(sin(value * .pi / 180.0))"
                 updatedCalculation.displayedValue = String(result.prefix(10))
                 updatedCalculation.displayingResult = true
             }
         case .cos:
-            if let value = Double(display) {
+            if let value = Double(currentCalculation.displayedValue) {
                 let result = "\(cos(value * .pi / 180.0))"
                 updatedCalculation.displayedValue = String(result.prefix(10))
                 updatedCalculation.displayingResult = true
@@ -172,12 +175,12 @@ class CalculatorViewViewModel: ObservableObject {
         var updatedCalculation = currentCalculation
         print("Setting pending operation...")
         if let storedValue = currentCalculation.storedValue,
-           let currentValue = Double(display),
+           let currentValue = Double(currentCalculation.displayedValue),
            let pendingOperation = currentCalculation.pendingOperation {
             let result = pendingOperation(storedValue, currentValue)
             updatedCalculation.storedValue = result
             updatedCalculation.displayedValue = "0"
-        } else if let value = Double(display) {
+        } else if let value = Double(currentCalculation.displayedValue) {
             updatedCalculation.storedValue = value
             updatedCalculation.displayedValue = "0"
         }
