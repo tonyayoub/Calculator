@@ -8,11 +8,9 @@
 import SwiftUI
 import Combine
 
+@MainActor
 class CalculatorViewViewModel: ObservableObject {
-    //    @Published var enabledOperations: [Operation] = [.sin, .cos, .bitCoin, .divide, .multiply, .subtract, .add]
-    
-    @Published var display2: String = "0"
-    private var currentCalculation = Calculation()
+    @Published var display: String = "0"
     @Published var enabledOperations: [Operation] = [
         .sin,
         .cos,
@@ -23,168 +21,36 @@ class CalculatorViewViewModel: ObservableObject {
         .add
     ]
     
+    var bag = Set<AnyCancellable>()
+    var currentCalculation = Calculation()
+    let service: CurrencyService
+    let screenWidth = UIScreen.main.bounds.width
     let buttonValue = PassthroughSubject<CalculatorButton, Never>()
-    private var bag = Set<AnyCancellable>()
     let columns = 4
     let spacing: CGFloat = 10.0
-    var screenWidth = UIScreen.main.bounds.width
-    var buttonSize: CGFloat {
-        let usedWidth = screenWidth > 500 ? screenWidth * 0.6 : screenWidth * 0.98
-        return (usedWidth - (spacing * CGFloat(columns + 1))) / CGFloat(columns)
-    }
-    
-    var upperRowOperations: [Operation] { // sin, cos, bitcoin
-        enabledOperations.filter { Operation.advanced.contains($0) }
-    }
-    
-    var rightColumnOperations: [Operation] { // divide, multiply, subtract, add
-        enabledOperations.filter { Operation.simple.contains($0) }
-    }
-    
-    var acButtonWidth: CGFloat {
-        let ACButtonLogicalWidth = CGFloat(4 - upperRowOperations.count)
-        return ACButtonLogicalWidth * buttonSize + (ACButtonLogicalWidth - 1) * spacing
-    }
-    
     let middleNumberRows: [[CalculatorButton]] = [
         [.one, .two, .three],
         [.four, .five, .six],
         [.seven, .eight, .nine],
     ]
     
-    var rightColumn: [CalculatorButton] {
-        if rightColumnOperations.isEmpty {
-            return [.equals]
-        } else if rightColumnOperations.count == 4 {
-            return [.divide, .multiply, .subtract] // add will be part of the lower row
-        } else {
-            return rightColumnOperations.map { CalculatorButton.createCalculatorButton(from: $0) }
-        }
-    }
-    
-    var rightColumnButtonHeight: CGFloat {
-        switch rightColumnOperations .count {
-        case 0, 1: return 3 * buttonSize + 2 * spacing
-        case 2: return 2 * buttonSize + spacing
-        default: return buttonSize
-        }
-    }
-    
-    var bottomRow: [CalculatorButton] {
-        if rightColumnOperations.count == 4 {
-            return [.zero, .dot, .equals, .add]
-        } else if rightColumnOperations.isEmpty {
-            return [.zero, .dot] // "=" will occupy the right column
-        } else {
-            return [.zero, .dot, .equals]
-        }
-    }
-    
-    var zeroButtonWidth: CGFloat {
-        switch rightColumnOperations.count {
-        case 0, 1, 3: return 2 * buttonSize + spacing
-        default: return buttonSize
-        }
-    }
-    
-    var dotButtonWidth: CGFloat {
-        rightColumnOperations.isEmpty ? 2 * buttonSize + spacing : buttonSize
-    }
-    
-    var equalsButtonHeight: CGFloat {
-        rightColumnOperations.isEmpty ? 4 * buttonSize + 3 * spacing : buttonSize
-    }
-    
-    var tallRightColumn: Bool {
-        rightColumn.count == 2
-    }
-    
-    init() {
+    init(service: CurrencyService) {
+        self.service = service
         buttonValue
             .sink {
-                print($0)
-                self.currentCalculation = self.buttonTapped(button: $0, currentCalculation: self.currentCalculation)
-                self.display2 = self.currentCalculation.displayedValue
-//                self.buttonTapped($0)
+                if $0 == .bitCoin {
+                    Task {
+                        let value = try await service.fetchCurrencyValue(for: 4)
+                        print(value)
+                    }
+                } else {
+                    self.currentCalculation = CalculationHandler.updateCalculation(
+                        button: $0,
+                        currentCalculation: self.currentCalculation
+                    )
+                    self.display = self.currentCalculation.displayedValue
+                }
             }
             .store(in: &bag)
-    }
-    
-    func buttonTapped(button: CalculatorButton, currentCalculation: Calculation) -> Calculation {
-        var updatedCalculation = currentCalculation
-        switch button {
-        case .ac:
-            updatedCalculation.displayedValue = "0"
-            updatedCalculation.storedValue = nil
-            updatedCalculation.pendingOperation = nil
-        case .dot:
-            if currentCalculation.displayingResult {
-                updatedCalculation.displayedValue = "0."
-                updatedCalculation.displayingResult = false
-            } else if !currentCalculation.displayedValue.contains(".") {
-                updatedCalculation.displayedValue = currentCalculation.displayedValue + "."
-            }
-        case .equals:
-            guard let storedValue = currentCalculation.storedValue,
-                  let pendingOperation = currentCalculation.pendingOperation,
-                  let currentValue = Double(currentCalculation.displayedValue) else {
-                updatedCalculation.displayingResult = true // For when the user taps '=' twice
-                return updatedCalculation
-            }
-            updatedCalculation.displayedValue = String(format: "%g", pendingOperation(storedValue, currentValue))
-            updatedCalculation.storedValue = nil
-            updatedCalculation.pendingOperation = nil
-            updatedCalculation.displayingResult = true
-        case .add:
-            updatedCalculation = setPendingOperation(operation: { $0 + $1 }, currentCalculation: currentCalculation)
-//             setPendingOperation { $0 + $1 }
-        case .subtract:
-            updatedCalculation = setPendingOperation(operation: { $0 - $1 }, currentCalculation: currentCalculation)
-        case .multiply:
-            updatedCalculation = setPendingOperation(operation: { $0 * $1 }, currentCalculation: currentCalculation)
-        case .divide:
-            updatedCalculation = setPendingOperation(operation: { $0 / $1 }, currentCalculation: currentCalculation)
-        case .sin:
-            if let value = Double(currentCalculation.displayedValue) {
-                let result = "\(sin(value * .pi / 180.0))"
-                updatedCalculation.displayedValue = String(result.prefix(10))
-                updatedCalculation.displayingResult = true
-            }
-        case .cos:
-            if let value = Double(currentCalculation.displayedValue) {
-                let result = "\(cos(value * .pi / 180.0))"
-                updatedCalculation.displayedValue = String(result.prefix(10))
-                updatedCalculation.displayingResult = true
-            }
-        default:
-            if currentCalculation.displayedValue == "0" || currentCalculation.displayingResult {
-                updatedCalculation.displayedValue = button.title
-                updatedCalculation.displayingResult = false
-            } else {
-                updatedCalculation.displayedValue += button.title
-            }
-        }
-        
-        return updatedCalculation
-    }
-        
-    func setPendingOperation(
-        operation: @escaping (Double, Double) -> Double,
-        currentCalculation: Calculation
-    ) -> Calculation {
-        var updatedCalculation = currentCalculation
-        print("Setting pending operation...")
-        if let storedValue = currentCalculation.storedValue,
-           let currentValue = Double(currentCalculation.displayedValue),
-           let pendingOperation = currentCalculation.pendingOperation {
-            let result = pendingOperation(storedValue, currentValue)
-            updatedCalculation.storedValue = result
-            updatedCalculation.displayedValue = "0"
-        } else if let value = Double(currentCalculation.displayedValue) {
-            updatedCalculation.storedValue = value
-            updatedCalculation.displayedValue = "0"
-        }
-        updatedCalculation.pendingOperation = operation
-        return updatedCalculation
     }
 }

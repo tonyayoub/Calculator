@@ -12,7 +12,7 @@ enum Operation: String, Identifiable {
     case sin, cos, bitCoin
     
     static var advanced: [Operation] { [.sin, .cos, .bitCoin] }
-    static var simple: [Operation] { [.add, .subtract, .multiply, .divide] }
+    static var simple: [Operation] { [.divide, .multiply, .subtract, .add] }
     
     var display: String {
         switch self {

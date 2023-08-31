@@ -8,7 +8,7 @@ import SwiftUI
 
 struct CalculatorView: View {
 
-    @StateObject private var viewModel = CalculatorViewViewModel()
+    @StateObject private var viewModel = CalculatorViewViewModel(service: BitcoinService())
     
     let buttons: [[CalculatorButton]] = [
         [.ac, .sin, .bitCoin],
@@ -24,7 +24,7 @@ struct CalculatorView: View {
             VStack(alignment: .center, spacing: 20) {
                 Spacer(minLength: 40)
                 VStack(alignment: .center) {
-                    Text(viewModel.display2)
+                    Text(viewModel.display)
                         .font(.largeTitle)
                         .multilineTextAlignment(.trailing)  // Right-aligned text
                         .padding()
@@ -46,14 +46,6 @@ struct CalculatorView: View {
                     Spacer()
                 }
   
-            }
-            .onAppear {
-                let width = geometry.size.width
-                let height = geometry.size.height
-                let aspectRatio = width / height
-                print("Aspect ratio is \(aspectRatio)")
-                print("Size: \(geometry.size)")
-                viewModel.screenWidth = geometry.size.width
             }
         }
         

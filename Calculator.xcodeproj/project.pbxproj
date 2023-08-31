@@ -29,6 +29,10 @@
 		F8EF88102A9EE1C400B8378A /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = F8EF880F2A9EE1C400B8378A /* Preview Content */; };
 		F8EF88132A9F309200B8378A /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF88122A9F309200B8378A /* Calculation.swift */; };
 		F8EF88152A9F3D4400B8378A /* CalculationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF88142A9F3D4400B8378A /* CalculationHandler.swift */; };
+		F8EF88182AA01F5500B8378A /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF88172AA01F5500B8378A /* Currency.swift */; };
+		F8EF881A2AA0218C00B8378A /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF88192AA0218C00B8378A /* CurrencyService.swift */; };
+		F8EF881C2AA021EA00B8378A /* BitcoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF881B2AA021EA00B8378A /* BitcoinService.swift */; };
+		F8EF881E2AA027B900B8378A /* CalculatorViewViewModel+Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF881D2AA027B900B8378A /* CalculatorViewViewModel+Dimensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,10 @@
 		F8EF880F2A9EE1C400B8378A /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
 		F8EF88122A9F309200B8378A /* Calculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
 		F8EF88142A9F3D4400B8378A /* CalculationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationHandler.swift; sourceTree = "<group>"; };
+		F8EF88172AA01F5500B8378A /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		F8EF88192AA0218C00B8378A /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
+		F8EF881B2AA021EA00B8378A /* BitcoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinService.swift; sourceTree = "<group>"; };
+		F8EF881D2AA027B900B8378A /* CalculatorViewViewModel+Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorViewViewModel+Dimensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +132,7 @@
 		F80A48F92A95F2520085753C /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				F8EF88162AA017E600B8378A /* Service */,
 				F8EF88112A9F224200B8378A /* Domain Logic */,
 				F8C0600F2A9D7C8200D0E6D3 /* UI */,
 				F80A49302A98AF690085753C /* Model */,
@@ -162,6 +171,7 @@
 			children = (
 				F8EF88122A9F309200B8378A /* Calculation.swift */,
 				F80A49322A98AF9E0085753C /* Operation.swift */,
+				F8EF88172AA01F5500B8378A /* Currency.swift */,
 			);
 			path = Unmanaged;
 			sourceTree = "<group>";
@@ -192,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				F80A49382A9AF4250085753C /* CalculatorViewViewModel.swift */,
+				F8EF881D2AA027B900B8378A /* CalculatorViewViewModel+Dimensions.swift */,
 				F80A48FC2A95F2520085753C /* CalculatorView.swift */,
 				F80A49282A96EBA80085753C /* CalculatorButton.swift */,
 				F80A492E2A98AD620085753C /* ButtonGrid.swift */,
@@ -226,6 +237,15 @@
 				F8EF88142A9F3D4400B8378A /* CalculationHandler.swift */,
 			);
 			path = "Domain Logic";
+			sourceTree = "<group>";
+		};
+		F8EF88162AA017E600B8378A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F8EF88192AA0218C00B8378A /* CurrencyService.swift */,
+				F8EF881B2AA021EA00B8378A /* BitcoinService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8EF88182AA01F5500B8378A /* Currency.swift in Sources */,
 				F8A3C28E2A9DDC0000A558D0 /* ConfigurationGrid.swift in Sources */,
 				F80A49372A9A0E840085753C /* SquareButton.swift in Sources */,
 				F80A48FD2A95F2520085753C /* CalculatorView.swift in Sources */,
@@ -367,11 +388,14 @@
 				F80A48FB2A95F2520085753C /* CalculatorApp.swift in Sources */,
 				F8A3C28C2A9DDB5200A558D0 /* ConfigurationCell.swift in Sources */,
 				F80A493D2A9B1AEA0085753C /* RightColumn.swift in Sources */,
+				F8EF881A2AA0218C00B8378A /* CurrencyService.swift in Sources */,
 				F80A49332A98AF9E0085753C /* Operation.swift in Sources */,
 				F8EF88152A9F3D4400B8378A /* CalculationHandler.swift in Sources */,
 				F80A49392A9AF4250085753C /* CalculatorViewViewModel.swift in Sources */,
 				F8EF88132A9F309200B8378A /* Calculation.swift in Sources */,
 				F80A493B2A9B01AE0085753C /* MiddleGrid.swift in Sources */,
+				F8EF881E2AA027B900B8378A /* CalculatorViewViewModel+Dimensions.swift in Sources */,
+				F8EF881C2AA021EA00B8378A /* BitcoinService.swift in Sources */,
 				F80A49292A96EBA80085753C /* CalculatorButton.swift in Sources */,
 				F80A49352A9A0D910085753C /* UpperRow.swift in Sources */,
 				F80A492F2A98AD620085753C /* ButtonGrid.swift in Sources */,
