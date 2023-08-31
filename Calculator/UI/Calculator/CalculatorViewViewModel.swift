@@ -68,7 +68,11 @@ class CalculatorViewViewModel: ObservableObject {
                 let value = try await service.fetchCurrencyValue(for: numericValue)
                 self.display = String(value)
                 self.currentCalculation.displayedValue = "0"
-            } catch  {
+            } catch ServiceError.overFlow {
+                self.currentCalculation.displayingResult = true
+                self.errorMessage = "Error: value overflow"
+            }
+            catch  {
                 self.currentCalculation.displayingResult = true
                 self.errorMessage = "Error: please check your network connection"
             } 

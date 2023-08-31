@@ -64,7 +64,10 @@ struct CalculationHandler {
                 updatedCalculation.displayedValue = button.title
                 updatedCalculation.displayingResult = false
             } else {
-                updatedCalculation.displayedValue += button.title
+                if updatedCalculation.displayedValue.count < 12 {
+                    updatedCalculation.displayedValue += button.title
+                }
+                
             }
         }
         
