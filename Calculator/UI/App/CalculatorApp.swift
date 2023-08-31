@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct CalculatorApp: App {
+    @AppStorage("isDarkMode") private var isDarkMode = false
     var body: some Scene {
         WindowGroup {
             CalculatorView()
+                .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
 }

@@ -13,7 +13,6 @@ enum CalculatorButton: String, CaseIterable {
     case add, subtract, multiply, divide
     case sin, cos
     case bitCoin
-    case empty
 
     var title: String {
         switch self {
@@ -37,7 +36,6 @@ enum CalculatorButton: String, CaseIterable {
         case .sin: return "sin"
         case .cos: return "cos"
         case .bitCoin: return "₿"
-        case .empty: return ""
         }
     }
     
@@ -45,7 +43,7 @@ enum CalculatorButton: String, CaseIterable {
         switch self {
         case .ac: return .red
         case .equals, .add, .subtract, .multiply, .divide: return .orange
-        case .empty: return .clear
+        case .sin, .cos, .bitCoin: return Color(red: 0.5, green: 0.7, blue: 0.2)
         default: return .gray
         }
     }

@@ -7,45 +7,39 @@
 import SwiftUI
 
 struct CalculatorView: View {
-
     @StateObject private var viewModel = CalculatorViewViewModel(service: BitcoinService())
     
-    let buttons: [[CalculatorButton]] = [
-        [.ac, .sin, .bitCoin],
-        [.seven, .eight, .nine, .divide],
-        [.four, .five, .six, .multiply],
-        [.one, .two, .three, .subtract],
-        [.zero, .dot, .equals, .add]
-    ]
-    
     var body: some View {
-        GeometryReader { geometry in
-            
-            VStack(alignment: .center, spacing: 20) {
-                Spacer(minLength: 40)
-                VStack(alignment: .center) {
-                    Text(viewModel.display)
-                        .font(.largeTitle)
-                        .multilineTextAlignment(.trailing)  // Right-aligned text
-                        .padding()
-                        .foregroundColor(.gray)
-                        .background(Color.clear)
-                        .cornerRadius(10)
-                    
-                    
-                    ButtonGrid()
-                        .environmentObject(viewModel)
-                    Spacer()
-                }
-                .background(.yellow)
-                .cornerRadius(5)
-
+        VStack(alignment: .center, spacing: 20) {
+            Spacer(minLength: 40)
+            VStack(alignment: .center) {
                 HStack {
                     Spacer()
-                    ConfigurationGrid(enabledOperations: $viewModel.enabledOperations)
-                    Spacer()
+                    Text(viewModel.display)
+                        .font(.largeTitle)
+                        .multilineTextAlignment(.trailing)
+                        .padding()
+                        .foregroundColor(.gray)
+                        .cornerRadius(10)
+                        .padding(.trailing, viewModel.resultPadding)
                 }
-  
+                
+                ButtonGrid()
+                    .environmentObject(viewModel)
+                Spacer()
+            }
+            .cornerRadius(5)
+            
+            if viewModel.showProgress {
+                ProgressView()
+            }
+            Text(viewModel.errorMessage)
+                .font(.footnote)
+                .foregroundColor(Color.red.opacity(0.6))
+            HStack {
+                Spacer()
+                ConfigurationGrid(enabledOperations: $viewModel.enabledOperations)
+                Spacer()
             }
         }
         

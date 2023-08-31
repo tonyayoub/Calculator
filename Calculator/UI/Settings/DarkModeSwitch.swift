@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct DarkModeSwitch: View {
+    @AppStorage("isDarkMode") private var isDarkMode = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("\(Image(systemName: "moon.fill"))")
+            .font(.footnote)
+            .padding()
+            .foregroundColor(isDarkMode ? Color.blue : Color.gray)
+            .onTapGesture { toggleOperation() }
+    }
+    
+    func toggleOperation() {
+        isDarkMode.toggle()
     }
 }
 

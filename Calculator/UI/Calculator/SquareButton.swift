@@ -20,7 +20,7 @@ struct SquareButton: View {
         }) {
             Text(calculatorButton.title)
                 .frame(width: width, height: height)
-                .background(.orange)
+                .background(calculatorButton.color)
                 .foregroundColor(.white)
                 .cornerRadius(10)
         }

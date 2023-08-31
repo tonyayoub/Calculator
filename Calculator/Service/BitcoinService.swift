@@ -32,7 +32,7 @@ class BitcoinService: CurrencyService {
             guard let usdValue = currencyResponse["USD"]?.last else {
                 throw NetworkError.requestFailed
             }
-            return usdValue
+            return usdValue * localValue
         } catch {
             throw NetworkError.unknown
         }

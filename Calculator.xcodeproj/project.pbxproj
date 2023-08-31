@@ -33,6 +33,7 @@
 		F8EF881A2AA0218C00B8378A /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF88192AA0218C00B8378A /* CurrencyService.swift */; };
 		F8EF881C2AA021EA00B8378A /* BitcoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF881B2AA021EA00B8378A /* BitcoinService.swift */; };
 		F8EF881E2AA027B900B8378A /* CalculatorViewViewModel+Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF881D2AA027B900B8378A /* CalculatorViewViewModel+Dimensions.swift */; };
+		F8EF88202AA09BA100B8378A /* DarkModeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF881F2AA09BA100B8378A /* DarkModeSwitch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		F8EF88192AA0218C00B8378A /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		F8EF881B2AA021EA00B8378A /* BitcoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinService.swift; sourceTree = "<group>"; };
 		F8EF881D2AA027B900B8378A /* CalculatorViewViewModel+Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorViewViewModel+Dimensions.swift"; sourceTree = "<group>"; };
+		F8EF881F2AA09BA100B8378A /* DarkModeSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeSwitch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 				F8C060112A9D7CA600D0E6D3 /* OperationToggle.swift */,
 				F8A3C28B2A9DDB5200A558D0 /* ConfigurationCell.swift */,
 				F8A3C28D2A9DDC0000A558D0 /* ConfigurationGrid.swift */,
+				F8EF881F2AA09BA100B8378A /* DarkModeSwitch.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				F8EF881C2AA021EA00B8378A /* BitcoinService.swift in Sources */,
 				F80A49292A96EBA80085753C /* CalculatorButton.swift in Sources */,
 				F80A49352A9A0D910085753C /* UpperRow.swift in Sources */,
+				F8EF88202AA09BA100B8378A /* DarkModeSwitch.swift in Sources */,
 				F80A492F2A98AD620085753C /* ButtonGrid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

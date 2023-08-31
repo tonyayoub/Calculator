@@ -10,7 +10,7 @@ import Combine
 
 @MainActor
 class CalculatorViewViewModel: ObservableObject {
-    @Published var display: String = "0"
+    @Published var display = "0"
     @Published var enabledOperations: [Operation] = [
         .sin,
         .cos,
@@ -20,6 +20,8 @@ class CalculatorViewViewModel: ObservableObject {
         .subtract,
         .add
     ]
+    @Published var showProgress = false
+    @Published var errorMessage = ""
     
     var bag = Set<AnyCancellable>()
     var currentCalculation = Calculation()
@@ -38,19 +40,49 @@ class CalculatorViewViewModel: ObservableObject {
         self.service = service
         buttonValue
             .sink {
-                if $0 == .bitCoin {
-                    Task {
-                        let value = try await service.fetchCurrencyValue(for: 4)
-                        print(value)
-                    }
-                } else {
-                    self.currentCalculation = CalculationHandler.updateCalculation(
-                        button: $0,
-                        currentCalculation: self.currentCalculation
-                    )
-                    self.display = self.currentCalculation.displayedValue
-                }
+                self.errorMessage = ""
+                $0 == .bitCoin ? self.fetchBitcoinValue() : self.performLocalOperation(button: $0)
             }
             .store(in: &bag)
+        
+        $enabledOperations.map {
+            $0.isEmpty ? "Please enable at least one operation" : ""
+        }
+        .assign(to: \.errorMessage, on: self)
+        .store(in: &bag)
+    }
+    
+    private func fetchBitcoinValue() {
+        guard let numericValue = Double(display) else {
+            return
+        }
+        
+        if numericValue.isInfinite || numericValue.isNaN {
+            self.display = "0"
+            return
+        }
+        
+        Task {
+            showProgress = true
+            do {
+                let value = try await service.fetchCurrencyValue(for: numericValue)
+                self.display = String(value)
+                self.currentCalculation.displayedValue = "0"
+            } catch  {
+                self.currentCalculation.displayingResult = true
+                self.errorMessage = "Error: please check your network connection"
+            } 
+            
+
+            showProgress = false
+        }
+    }
+    
+    private func performLocalOperation(button: CalculatorButton) {
+        self.currentCalculation = CalculationHandler.updateCalculation(
+            button: button,
+            currentCalculation: self.currentCalculation
+        )
+        self.display = self.currentCalculation.displayedValue
     }
 }

@@ -8,8 +8,9 @@
 import Foundation
 
 extension CalculatorViewViewModel {
+    
     var buttonSize: CGFloat {
-        let usedWidth = screenWidth > 500 ? screenWidth * 0.6 : screenWidth * 0.98
+        let usedWidth = isIPad ? screenWidth * 0.6 : screenWidth * 0.98
         return (usedWidth - (spacing * CGFloat(columns + 1))) / CGFloat(columns)
     }
     
@@ -25,8 +26,6 @@ extension CalculatorViewViewModel {
         let ACButtonLogicalWidth = CGFloat(4 - upperRowOperations.count)
         return ACButtonLogicalWidth * buttonSize + (ACButtonLogicalWidth - 1) * spacing
     }
-    
-
     
     var rightColumn: [CalculatorButton] {
         if rightColumnOperations.isEmpty {
@@ -73,5 +72,13 @@ extension CalculatorViewViewModel {
     
     var tallRightColumn: Bool {
         rightColumn.count == 2
+    }
+    
+    var resultPadding: CGFloat {
+        isIPad ? (screenWidth / 2) - (2 * buttonSize + spacing) : 0
+    }
+    
+    var isIPad: Bool { // Can be improved
+        screenWidth > 500
     }
 }

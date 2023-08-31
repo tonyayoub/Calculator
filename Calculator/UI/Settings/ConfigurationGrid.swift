@@ -13,13 +13,14 @@ struct ConfigurationGrid: View {
     var body: some View {
         
         VStack {
-            HStack {
+            HStack(spacing: 2) {
                 ForEach(Operation.advanced) {
                     ConfigurationCell(item: $0, enabledOperations: $enabledOperations)
                 }
                 ForEach(Operation.simple) {
                     ConfigurationCell(item: $0, enabledOperations: $enabledOperations)
                 }
+                DarkModeSwitch()
             }
         }
     }
