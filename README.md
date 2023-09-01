@@ -23,6 +23,8 @@ git clone https://github.com/tonyayoub/Calculator.git
 2. Build and run the application on a simulator or physical device.
 
 ## Notes
+- The unit tests are to deomonstrate the testability of the view model and the calculation handler. There are many more test cases to be added to cover all cases (for both calculations and layout management)
+
 - The calculator is missing a frame around the buttons. This looks OK in iPhone because the screen edges act as a frame but in iPad it does not look good. The reason for the missing frame is that I had to put the feature toggling on the same view and couldn't figure out a nice design to not let them look like they are outside the main app.
 
 - For Modularization, I used XCode project groups/folders for code hierarchy. As a future enhancement, I can create a Swift package for networking and another one for calculation handling. 

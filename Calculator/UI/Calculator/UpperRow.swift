@@ -28,8 +28,6 @@ struct UpperRow: View {
                     calculatorButton: CalculatorButton.createCalculatorButton(from: operation)
                 )
             }
-//            SquareButton(width: 2 * buttonSize + spacing, height: buttonSize)
-//            SquareButton(width: buttonSize, height: buttonSize)
         }
     }
 }

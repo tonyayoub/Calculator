@@ -9,14 +9,10 @@ import SwiftUI
 import Combine
 
 struct ButtonGrid: View {
-    // Will be a binding injected from parent
-    
+    @EnvironmentObject var viewModel: CalculatorViewViewModel
     let columns = 4
     let spacing: CGFloat = 10.0
     let screenWidth = UIScreen.main.bounds.width
-//    var buttonValue: PassthroughSubject<String, Never>
-    @EnvironmentObject var viewModel: CalculatorViewViewModel
-    
     
     // Calculate size based on screen width
     var buttonSize: CGFloat {
