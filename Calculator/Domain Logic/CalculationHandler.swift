@@ -38,13 +38,25 @@ struct CalculationHandler {
             updatedCalculation.pendingOperation = nil
             updatedCalculation.displayingResult = true
         case .add:
-            updatedCalculation = updatePendingOperation(operation: { $0 + $1 }, currentCalculation: currentCalculation)
+            updatedCalculation = updatePendingOperation(
+                operation: { $0 + $1 },
+                currentCalculation: currentCalculation
+            )
         case .subtract:
-            updatedCalculation = updatePendingOperation(operation: { $0 - $1 }, currentCalculation: currentCalculation)
+            updatedCalculation = updatePendingOperation(
+                operation: { $0 - $1 },
+                currentCalculation: currentCalculation
+            )
         case .multiply:
-            updatedCalculation = updatePendingOperation(operation: { $0 * $1 }, currentCalculation: currentCalculation)
+            updatedCalculation = updatePendingOperation(
+                operation: { $0 * $1 },
+                currentCalculation: currentCalculation
+            )
         case .divide:
-            updatedCalculation = updatePendingOperation(operation: { $0 / $1 }, currentCalculation: currentCalculation)
+            updatedCalculation = updatePendingOperation(
+                operation: { $0 / $1 },
+                currentCalculation: currentCalculation
+            )
         case .sin:
             if let value = Double(currentCalculation.displayedValue) {
                 let result = "\(sin(value * .pi / 180.0))"

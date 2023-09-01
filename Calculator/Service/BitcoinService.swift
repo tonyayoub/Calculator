@@ -12,7 +12,6 @@ typealias CurrencyResponse = [String: Currency]
 enum ServiceError: Error {
     case badURL
     case requestFailed
-    case unknownd
     case overFlow
 }
 
@@ -39,6 +38,5 @@ class BitcoinService: CurrencyService {
         else {
             return result
         }
-            
     }
 }

@@ -26,7 +26,7 @@ class CalculatorViewViewModel: ObservableObject {
     var bag = Set<AnyCancellable>()
     var currentCalculation = Calculation()
     let service: CurrencyService
-    let screenWidth = UIScreen.main.bounds.width
+    let screenWidth: CGFloat
     let buttonValue = PassthroughSubject<CalculatorButton, Never>()
     let columns = 4
     let spacing: CGFloat = 10.0
@@ -36,7 +36,8 @@ class CalculatorViewViewModel: ObservableObject {
         [.seven, .eight, .nine],
     ]
     
-    init(service: CurrencyService) {
+    init(service: CurrencyService, screenWidth: CGFloat) {
+        self.screenWidth = screenWidth
         self.service = service
         buttonValue
             .sink {
@@ -46,7 +47,7 @@ class CalculatorViewViewModel: ObservableObject {
             .store(in: &bag)
         
         $enabledOperations.map {
-            $0.isEmpty ? "Please enable at least one operation" : ""
+            $0.isEmpty ? Constants.ErrorMessages.noOperationsEnabled : ""
         }
         .assign(to: \.errorMessage, on: self)
         .store(in: &bag)
@@ -70,14 +71,12 @@ class CalculatorViewViewModel: ObservableObject {
                 self.currentCalculation.displayedValue = "0"
             } catch ServiceError.overFlow {
                 self.currentCalculation.displayingResult = true
-                self.errorMessage = "Error: value overflow"
+                self.errorMessage = Constants.ErrorMessages.overFlow
             }
             catch  {
                 self.currentCalculation.displayingResult = true
-                self.errorMessage = "Error: please check your network connection"
-            } 
-            
-
+                self.errorMessage = Constants.ErrorMessages.networkError
+            }
             showProgress = false
         }
     }

@@ -10,7 +10,6 @@
 		F80A48FB2A95F2520085753C /* CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A48FA2A95F2520085753C /* CalculatorApp.swift */; };
 		F80A48FD2A95F2520085753C /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A48FC2A95F2520085753C /* CalculatorView.swift */; };
 		F80A48FF2A95F2530085753C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F80A48FE2A95F2530085753C /* Assets.xcassets */; };
-		F80A490C2A95F2530085753C /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A490B2A95F2530085753C /* CalculatorTests.swift */; };
 		F80A49162A95F2530085753C /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A49152A95F2530085753C /* CalculatorUITests.swift */; };
 		F80A49182A95F2530085753C /* CalculatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A49172A95F2530085753C /* CalculatorUITestsLaunchTests.swift */; };
 		F80A49272A96EA920085753C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A49262A96EA920085753C /* SettingsView.swift */; };
@@ -34,6 +33,11 @@
 		F8EF881C2AA021EA00B8378A /* BitcoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF881B2AA021EA00B8378A /* BitcoinService.swift */; };
 		F8EF881E2AA027B900B8378A /* CalculatorViewViewModel+Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF881D2AA027B900B8378A /* CalculatorViewViewModel+Dimensions.swift */; };
 		F8EF88202AA09BA100B8378A /* DarkModeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF881F2AA09BA100B8378A /* DarkModeSwitch.swift */; };
+		F8EF88222AA17DC500B8378A /* CalculationHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF88212AA17DC500B8378A /* CalculationHandlerTests.swift */; };
+		F8EF88242AA183F000B8378A /* CalculatorViewViewModelErrorMessagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF88232AA183F000B8378A /* CalculatorViewViewModelErrorMessagesTests.swift */; };
+		F8EF88272AA184B500B8378A /* MockedBitcoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF88262AA184B500B8378A /* MockedBitcoinService.swift */; };
+		F8EF88292AA18A0900B8378A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF88282AA18A0900B8378A /* Constants.swift */; };
+		F8EF882B2AA18FC800B8378A /* CalculatorViewViewModelLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EF882A2AA18FC800B8378A /* CalculatorViewViewModelLayoutTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +63,6 @@
 		F80A48FC2A95F2520085753C /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		F80A48FE2A95F2530085753C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F80A49072A95F2530085753C /* CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F80A490B2A95F2530085753C /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
 		F80A49112A95F2530085753C /* CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F80A49152A95F2530085753C /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 		F80A49172A95F2530085753C /* CalculatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -84,6 +87,11 @@
 		F8EF881B2AA021EA00B8378A /* BitcoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinService.swift; sourceTree = "<group>"; };
 		F8EF881D2AA027B900B8378A /* CalculatorViewViewModel+Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorViewViewModel+Dimensions.swift"; sourceTree = "<group>"; };
 		F8EF881F2AA09BA100B8378A /* DarkModeSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeSwitch.swift; sourceTree = "<group>"; };
+		F8EF88212AA17DC500B8378A /* CalculationHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationHandlerTests.swift; sourceTree = "<group>"; };
+		F8EF88232AA183F000B8378A /* CalculatorViewViewModelErrorMessagesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewViewModelErrorMessagesTests.swift; sourceTree = "<group>"; };
+		F8EF88262AA184B500B8378A /* MockedBitcoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedBitcoinService.swift; sourceTree = "<group>"; };
+		F8EF88282AA18A0900B8378A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F8EF882A2AA18FC800B8378A /* CalculatorViewViewModelLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewViewModelLayoutTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +154,10 @@
 		F80A490A2A95F2530085753C /* CalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				F80A490B2A95F2530085753C /* CalculatorTests.swift */,
+				F8EF88252AA183FB00B8378A /* Mocked Services */,
+				F8EF88212AA17DC500B8378A /* CalculationHandlerTests.swift */,
+				F8EF88232AA183F000B8378A /* CalculatorViewViewModelErrorMessagesTests.swift */,
+				F8EF882A2AA18FC800B8378A /* CalculatorViewViewModelLayoutTests.swift */,
 			);
 			path = CalculatorTests;
 			sourceTree = "<group>";
@@ -238,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				F8EF88142A9F3D4400B8378A /* CalculationHandler.swift */,
+				F8EF88282AA18A0900B8378A /* Constants.swift */,
 			);
 			path = "Domain Logic";
 			sourceTree = "<group>";
@@ -249,6 +261,14 @@
 				F8EF881B2AA021EA00B8378A /* BitcoinService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		F8EF88252AA183FB00B8378A /* Mocked Services */ = {
+			isa = PBXGroup;
+			children = (
+				F8EF88262AA184B500B8378A /* MockedBitcoinService.swift */,
+			);
+			path = "Mocked Services";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +407,7 @@
 				F80A48FD2A95F2520085753C /* CalculatorView.swift in Sources */,
 				F80A49272A96EA920085753C /* SettingsView.swift in Sources */,
 				F8C060122A9D7CA600D0E6D3 /* OperationToggle.swift in Sources */,
+				F8EF88292AA18A0900B8378A /* Constants.swift in Sources */,
 				F80A493F2A9B1ED40085753C /* BottomRow.swift in Sources */,
 				F80A48FB2A95F2520085753C /* CalculatorApp.swift in Sources */,
 				F8A3C28C2A9DDB5200A558D0 /* ConfigurationCell.swift in Sources */,
@@ -410,7 +431,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F80A490C2A95F2530085753C /* CalculatorTests.swift in Sources */,
+				F8EF88222AA17DC500B8378A /* CalculationHandlerTests.swift in Sources */,
+				F8EF882B2AA18FC800B8378A /* CalculatorViewViewModelLayoutTests.swift in Sources */,
+				F8EF88272AA184B500B8378A /* MockedBitcoinService.swift in Sources */,
+				F8EF88242AA183F000B8378A /* CalculatorViewViewModelErrorMessagesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

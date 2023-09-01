@@ -7,7 +7,10 @@
 import SwiftUI
 
 struct CalculatorView: View {
-    @StateObject private var viewModel = CalculatorViewViewModel(service: BitcoinService())
+    @StateObject private var viewModel = CalculatorViewViewModel(
+        service: BitcoinService(),
+        screenWidth: UIScreen.main.bounds.width
+    )
     
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
